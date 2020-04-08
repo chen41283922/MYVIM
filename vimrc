@@ -23,12 +23,23 @@ set nocompatible              " be iMproved, required
 
 ""set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,~/.vim/after/syntax,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after
 
+" Set foldmethod=marker {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
 
+
+
+"{{{
 " Wrap the word under the cursor with "
 "nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+" }}}
 
 
-let mapleader = "-"
+
+let mapleader = "\<Space>"
 set backspace=2
 filetype on
 set nu
@@ -37,6 +48,7 @@ set relativenumber
 set hlsearch
 set incsearch
 
+set t_co=256
 set cindent
 
 set softtabstop=4
@@ -72,7 +84,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 
-set t_co=256
 
 " Ctags tags file path
 set tags=./tags,./TAGS,tags;~,TAGS;~
